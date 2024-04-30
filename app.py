@@ -6,6 +6,7 @@ from config import Config
 from apscheduler.schedulers.background import BackgroundScheduler
 from utils import check_for_new_commits
 import atexit
+import os
 from database import db
 
 app = Flask(__name__)
