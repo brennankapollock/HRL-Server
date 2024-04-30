@@ -11,7 +11,7 @@ This repository contains the code for a build server designed to manage, build, 
 ## Installation
 
 1. Clone the repository:
-   ```bash
+   ```
    git clone https://github.com/your-repository-url.git
    ```
 2. Install the required Python packages:
