@@ -4,6 +4,7 @@ import subprocess
 import zipfile
 from models import Artifact
 from database import db
+from models import Program
 
 def clean_up_directory(path):
     if os.path.exists(path):
@@ -47,7 +48,9 @@ def build_program(program):
     
     return {"message": "Build successful"}, 200
 
-def check_for_new_commits():
+def check_for_new_commits(app):
+    with app.app_context():
+        programs = Program.query.all()
     programs = Program.query.all()
     for program in programs:
         repo_path = f'repos/{program.id}'

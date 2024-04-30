@@ -6,7 +6,6 @@ from config import Config
 from apscheduler.schedulers.background import BackgroundScheduler
 from utils import check_for_new_commits
 import atexit
-import os
 from database import db
 
 app = Flask(__name__)
@@ -16,7 +15,7 @@ db.init_app(app)
 
 
 scheduler = BackgroundScheduler()
-scheduler.add_job(func=check_for_new_commits, trigger="interval", seconds=120)
+scheduler.add_job(func=check_for_new_commits, args=(app,), trigger="interval", minutes=60)
 scheduler.start()
 
 atexit.register(lambda: scheduler.shutdown())
@@ -24,4 +23,4 @@ atexit.register(lambda: scheduler.shutdown())
 if __name__ == '__main__':
     with app.app_context():
         db.create_all()
-    app.run(debug=True, port=int(os.environ.get("PORT", 5000)))
+    app.run(debug=True)
