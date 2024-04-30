@@ -2,7 +2,7 @@
 # Lazer: A Pipeline in Your Pocket
 
 [Offical Docs](https://moose-find-m84.craft.me/HUqHr467UG4f2Q)
-]
+
 ## Introduction
 
 This repository contains the code for a build server designed to manage, build, and track the status of various software projects. It uses Flask for the backend, SQLAlchemy for database interactions, and a simple frontend to display build statuses.
